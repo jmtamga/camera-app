@@ -88,9 +88,9 @@ Optional<String> upperCaseCity = user
 
 
 .flatMap(User::getProfile)
-.flatMap(Profile::getAddress)
-.map(Address::getCity)
-.map(String::toUpperCase);
+    .flatMap(Profile::getAddress)
+    .map(Address::getCity)
+    .map(String::toUpperCase);
 upperCaseCity.ifPresent(System.out::println);
 
 Chaque transformation est appliquée seulement si la valeur est présente — si non, le résultat reste un
@@ -106,10 +106,14 @@ flatMap() pour résoudre cela :
 
 Exemple :
 ```
-Optional<String> city = user
-.flatMap(User::getProfile)
-.flatMap(Profile::getAddress)
-.map(Address::getCity);
+    private static final String CODE_PAR_DEFAUT = "CODE_DEFAULT";
+
+    return venueService
+        .getVenueById(5L)                   // Optional<Venue>
+        .map(Venue::getInfoHebergement)     // Optional<InfoHebergement>
+        .map(InfoHebergement::getUf)        // Optional<UniteFornctionnelle>
+        .map(UniteFornctionnelle::getCode)  // Optional<String>
+        .orElse(CODE_PAR_DEFAUT);
 
 ```
 
