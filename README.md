@@ -131,18 +131,14 @@ Exemple avec Optional:
   ...
   ...
   private static String getCodeUfRecommande() throws PatientNotFoundException {
-    return venueService
-        .getVenueById(5L)                  // Optional<Venue>
+    Optional<Venue> optVenue = venueService.getVenueById(5L);
+    return optVenue                        // Optional<Venue>
         .map(Venue::getInfoHebergement)    // Optional<InfoHebergement>
         .map(InfoHebergement::getUf)       // Optional<UniteFornctionnelle>
         .map(UniteFornctionnelle::getCode) // Optional<String>
         .orElse(CODE_PAR_DEFAUT);
   }
 ```
-
-
-- flatMap() "déplie" l’Optional imbriqué, évitant ainsi des niveaux d’imbrication inutiles
-    Medium.
 
 ## Exemple pratique — pipelines de transformation de données
 
