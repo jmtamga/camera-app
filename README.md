@@ -9,7 +9,8 @@ particulier, propose une approche efficace pour transformer ou appliquer des fon
 pourraient ou non être présentes. Cet article explique le but de Optional.map(), comment l’utiliser
 pour effectuer des transformations de données, et donne des conseils pour éviter les Optional
 profondément imbriqués dans des situations complexes Medium.
-Qu’est-ce que la classe Optional de Java et la méthode map() ?
+
+## Qu’est-ce que la classe Optional de Java et la méthode map() ?
 La classe Optional, introduite dans Java 8, agit comme un conteneur pour des valeurs qui peuvent
 exister ou non. Elle aide à prévenir les NullPointerException en exigeant une gestion explicite
 des valeurs manquantes, ce qui rend le code plus prévisible et réduit les erreurs à l’exécution Medium.
