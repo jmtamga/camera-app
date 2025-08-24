@@ -178,7 +178,7 @@ formattedName.ifPresent(System.out::println);
 
 - **map()** – idéal pour transformer une valeur si elle est présente.
 - **flatMap()** – pratique quand les méthodes retournent déjà un Optional.
-- **ifPresent()** , **orElse()** , **orElseGet()** – serveurs pour gérer la présence ou l’absence
+- **isPresent()** , **orElse()** , **orElseGet()** – serveurs pour gérer la présence ou l’absence
     d’une valeur sans transformation Medium.
 
 ## Conclusion
