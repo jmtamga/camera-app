@@ -7,18 +7,18 @@ permettant d’éviter les fameux NullPointerException. La méthode Optional.map
 particulier, propose une approche efficace pour transformer ou appliquer des fonctions à des valeurs qui
 pourraient ou non être présentes. Cet article explique le but de Optional.map(), comment l’utiliser
 pour effectuer des transformations de données, et donne des conseils pour éviter les Optional
-profondément imbriqués dans des situations complexes Medium.
+profondément imbriqués dans des situations complexes .
 
 ## Qu’est-ce que la classe Optional de Java et la méthode map() ?
 
 La classe Optional, introduite dans Java 8, agit comme un conteneur pour des valeurs qui peuvent
 exister ou non. Elle aide à prévenir les NullPointerException en exigeant une gestion explicite
-des valeurs manquantes, ce qui rend le code plus prévisible et réduit les erreurs à l’exécution Medium.
+des valeurs manquantes, ce qui rend le code plus prévisible et réduit les erreurs à l’exécution .
 
 La méthode Optional.map() fait partie des méthodes clés de la classe Optional. Elle permet
 d’appliquer une fonction de transformation à un objet Optional uniquement s’il contient une valeur.
 Si l’Optional est vide, map() retourne simplement un Optional vide, en ignorant la fonction
-Medium.
+.
 
 **Syntaxe :**
 
@@ -26,7 +26,7 @@ public <U> Optional<U> map(Function<? super T,? extends U> mapper)
 
 - **Paramètre** : une fonction Function qui transforme la valeur actuelle en une nouvelle valeur.
 - **Retour** : un Optional<U> contenant le résultat de l’application de la fonction si une valeur
-    est présente, ou un Optional vide sinon Medium.
+    est présente, ou un Optional vide sinon .
 
 **Exemple basique :**
 
@@ -36,7 +36,7 @@ Optional<String> upperCaseName = name.map(String::toUpperCase);
 System.out.println(upperCaseName); // affiche Optional[JORDAN]
 
 Si name est vide, map() n’exécute pas la transformation et retourne un Optional vide, évitant ainsi
-tout accès à une valeur nulle Medium.
+tout accès à une valeur nulle .
 
 
 ## Utiliser Optional.map() pour des transformations sécurisées
@@ -47,7 +47,7 @@ L’un des principaux avantages de Optional.map() est de simplifier les transfor
 tout en réduisant les vérifications répétitives de nullité. Lorsqu’on travaille avec des objets imbriqués,
 vérifier la nullité à chaque niveau peut rapidement devenir lourd. La méthode map() permet
 d’appliquer des transformations uniquement si une valeur est présente, en ignorant automatiquement
-les transformations si la donnée est absente et en renvoyant un Optional vide Medium.
+les transformations si la donnée est absente et en renvoyant un Optional vide .
 
 ### Exemple — Récupération de données imbriquées :
 
@@ -77,7 +77,7 @@ city.ifPresent(System.out::println);
 - user est un Optional<User>.
 - Chaque appel flatMap() désempile un niveau en gérant l’Optional.
 - Si un niveau est vide, les appels suivants sont ignorés, et le résultat final est un Optional
-    vide. Le code reste lisible et évite les vérifications null répétitives Medium.
+    vide. Le code reste lisible et évite les vérifications null répétitives .
 
 ## Appliquer plusieurs transformations avec Optional.map()
 
@@ -94,7 +94,7 @@ Optional<String> upperCaseCity = user
 upperCaseCity.ifPresent(System.out::println);
 
 Chaque transformation est appliquée seulement si la valeur est présente — si non, le résultat reste un
-Optional vide Medium.
+Optional vide .
 
 ## Gérer les méthodes renvoyant elles-mêmes un Optional avec
 
@@ -156,39 +156,39 @@ formattedName.ifPresent(System.out::println);
 - map(String::trim) supprime les espaces
 - map(String::toUpperCase) passe le nom en majuscules
     Chaque transformation ne s’exécute que s’il y a une valeur présente, évitant ainsi tout risque
-    d’accès à null Medium.
+    d’accès à null .
 
 
 ## Bonnes pratiques pour utiliser Optional.map()
 
 1. **Utiliser map() uniquement pour la transformation** : Si vous ne transformez pas la valeur,
-    privilégiez ifPresent() Medium.
+    privilégiez ifPresent() .
 2. **Éviter les Optional inutiles** : Pour les données dont on est sûr qu’elles sont présentes,
-    utiliser Optional peut être une surcharge inutile Medium.
+    utiliser Optional peut être une surcharge inutile .
 3. **Utiliser flatMap() pour les méthodes renvoyant un Optional** : Cela évite des structures
-    imbriquées difficiles à lire Medium.
+    imbriquées difficiles à lire .
 
 ## Alternatives et limitations de Optional.map()
 
 ### Alternatives :
 
 - **ifPresent()** pour des actions conditionnelles sans transformation (par ex. afficher ou
-    logger) Medium.
+    logger) .
 - **orElse() / orElseGet()** pour fournir une valeur par défaut si l’Optional est vide
-    Medium.
+    .
     Exemple :
     String name = Optional.ofNullable(getName()).orElse("Default Name");
-- **flatMap()** pour gérer les Optional imbriqués Medium.
+- **flatMap()** pour gérer les Optional imbriqués .
 
 ### Limitations :
 
 - **Pas adapté aux opérations à effets de bord** : Mieux vaut utiliser ifPresent() dans ces cas
-    Medium.
+    .
 - **Surcharge de performance** : L’utilisation de Optional peut introduire un léger coût en
     performance. Dans des contextes sensibles, des contrôles classiques de null pourraient être
-    préférables Medium.
+    préférables .
 - **Interaction limitée avec les Stream** : Optional et Stream sont distincts ; pour les utiliser
-    ensemble, on peut recourir à Optional.stream() (introduit en Java 9) Medium.
+    ensemble, on peut recourir à Optional.stream() (introduit en Java 9) .
     Exemple :
     List<Optional<String>> names = Arrays.asList(Optional.of("Alice"),
     Optional.empty(), Optional.of("Jordan"));
@@ -198,14 +198,14 @@ formattedName.ifPresent(System.out::println);
 
 
 - **Surcharge d’abstraction** : L’abus de Optional peut rendre le code plus abstrait et moins
-    lisible Medium.
+    lisible .
 
 ## Alternatives selon les cas
 
 - **map()** – idéal pour transformer une valeur si elle est présente.
 - **flatMap()** – pratique quand les méthodes retournent déjà un Optional.
 - **isPresent()** , **orElse()** , **orElseGet()** – serveurs pour gérer la présence ou l’absence
-    d’une valeur sans transformation Medium.
+    d’une valeur sans transformation .
 
 ## Conclusion
 
@@ -213,6 +213,6 @@ La méthode Optional.map() de Java offre un moyen élégant de gérer et transfo
 potentiellement nulles sans risquer l’apparition d’un NullPointerException. En combinant
 map(), flatMap(), ifPresent(), orElse() ou orElseGet(), vous pouvez manipuler
 efficacement les valeurs optionnelles : votre code gagne en lisibilité, en fiabilité, et en simplicité
-Medium.
+.
 
 
