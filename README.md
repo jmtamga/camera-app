@@ -1,6 +1,4 @@
-# Java’s Optional.map() Method
-
-# Explained
+# Optional.map()
 
 ## Introduction
 
