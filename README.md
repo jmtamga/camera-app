@@ -104,18 +104,42 @@ Quand une méthode renvoie déjà un Optional, utiliser map() seul conduirait à
 Optional<Optional<T>>, ce qui complique la manipulation. Heureusement, Java propose
 flatMap() pour résoudre cela :
 
-Exemple :
+Exemple sans Optional:
 ```
-    private static final String CODE_PAR_DEFAUT = "CODE_DEFAULT";
+  private static final String CODE_PAR_DEFAUT = "CODE_DEFAULT";
+  ...
+  ...
+  private static String getCodeUf() {
+    String codeUf = CODE_PAR_DEFAUT;
+    Venue venue = venueService.getVenueByIdClassique(5L);
+    if (venue != null
+        && venue.getInfoHebergement() != null
+        && venue.getInfoHebergement().getUf() != null) {
+      UniteFornctionnelle uf = venue.getInfoHebergement().getUf();
+      if (uf != null) {
+        codeUf = uf.getCode();
+      }
+    }
+    return codeUf;
+  }
+```
 
+
+Exemple avec Optional:
+```
+  private static final String CODE_PAR_DEFAUT = "CODE_DEFAULT";
+  ...
+  ...
+  private static String getCodeUfRecommande() throws PatientNotFoundException {
     return venueService
-        .getVenueById(5L)                   // Optional<Venue>
-        .map(Venue::getInfoHebergement)     // Optional<InfoHebergement>
-        .map(InfoHebergement::getUf)        // Optional<UniteFornctionnelle>
-        .map(UniteFornctionnelle::getCode)  // Optional<String>
+        .getVenueById(5L)                  // Optional<Venue>
+        .map(Venue::getInfoHebergement)    // Optional<InfoHebergement>
+        .map(InfoHebergement::getUf)       // Optional<UniteFornctionnelle>
+        .map(UniteFornctionnelle::getCode) // Optional<String>
         .orElse(CODE_PAR_DEFAUT);
-
+  }
 ```
+
 
 - flatMap() "déplie" l’Optional imbriqué, évitant ainsi des niveaux d’imbrication inutiles
     Medium.
