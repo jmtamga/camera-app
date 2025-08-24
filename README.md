@@ -105,11 +105,13 @@ Optional<Optional<T>>, ce qui complique la manipulation. Heureusement, Java prop
 flatMap() pour résoudre cela :
 
 Exemple :
-
+```
 Optional<String> city = user
 .flatMap(User::getProfile)
 .flatMap(Profile::getAddress)
 .map(Address::getCity);
+
+```
 
 - flatMap() "déplie" l’Optional imbriqué, évitant ainsi des niveaux d’imbrication inutiles
     Medium.
