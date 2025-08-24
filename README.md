@@ -96,9 +96,7 @@ upperCaseCity.ifPresent(System.out::println);
 Chaque transformation est appliquée seulement si la valeur est présente — si non, le résultat reste un
 Optional vide .
 
-## Gérer les méthodes renvoyant elles-mêmes un Optional avec
-
-## Optional.map()
+## Gérer les méthodes renvoyant elles-mêmes un Optional avec Optional.map()
 
 Quand une méthode renvoie déjà un Optional, utiliser map() seul conduirait à un
 Optional<Optional<T>>, ce qui complique la manipulation. Heureusement, Java propose
