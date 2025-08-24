@@ -132,7 +132,8 @@ Alternatives selon les cas
 • flatMap() – pratique quand les méthodes retournent déjà un Optional.
 • ifPresent(), orElse(), orElseGet() – serveurs pour gérer la présence ou l’absence
 d’une valeur sans transformation Medium.
-Conclusion
+
+## Conclusion
 La méthode Optional.map() de Java offre un moyen élégant de gérer et transformer des données
 potentiellement nulles sans risquer l’apparition d’un NullPointerException. En combinant
 map(), flatMap(), ifPresent(), orElse() ou orElseGet(), vous pouvez manipuler
