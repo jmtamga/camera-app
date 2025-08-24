@@ -2,7 +2,7 @@
 camera-app
 Java’s Optional.map() Method
 Explained
-Introduction
+## Introduction
 La classe Optional de Java offre une manière plus sûre de gérer les valeurs potentiellement nulles,
 permettant d’éviter les fameux NullPointerException. La méthode Optional.map(), en
 particulier, propose une approche efficace pour transformer ou appliquer des fonctions à des valeurs qui
