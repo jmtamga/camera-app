@@ -17,8 +17,8 @@ des valeurs manquantes, ce qui rend le code plus prévisible et réduit les erre
 La méthode Optional.map() fait partie des méthodes clés de la classe Optional. Elle permet
 d’appliquer une fonction de transformation à un objet Optional uniquement s’il contient une valeur.
 Si l’Optional est vide, map() retourne simplement un Optional vide, en ignorant la fonction
-Medium.
-Syntaxe :
+
+** Syntaxe :
 public <U> Optional<U> map(Function<? super T, ? extends U> mapper)
 • Paramètre : une fonction Function qui transforme la valeur actuelle en une nouvelle valeur.
 • Retour : un Optional<U> contenant le résultat de l’application de la fonction si une valeur
