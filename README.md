@@ -12,7 +12,7 @@ profondément imbriqués dans des situations complexes .
 
 Depuis sa version 8, le langage Java propose une classe qui a pour but de supprimer le problème du null : la classe Optional<T> (que j’appellerais Optional pour faire plus simple ; voir la doc).
 
-Optional est une classe générique qui peut contenir, ou non, une valeur (de type T) ; elle propose également des méthodes permettant de simplifier sa manipulation, en particulier de vérifier qu’une valeur soit présente (isPresent), de fournir une valeur par défaut (orElse), de récupérer la valeur (get), map, flatmap...
+Optional est une classe générique qui peut contenir, ou non, une valeur (de type T) ; elle propose également des méthodes permettant de simplifier sa manipulation, en particulier de vérifier qu’une valeur soit présente (isPresent), de fournir une valeur par défaut (orElse, orElseGet), de récupérer la valeur (get), map, flatmap...
 
 ## Qu’est-ce que la classe Optional de Java et la méthode map() ?
 
