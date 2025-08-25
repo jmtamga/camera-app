@@ -9,6 +9,11 @@ pourraient ou non être présentes. Cet article explique le but de Optional.map(
 pour effectuer des transformations de données, et donne des conseils pour éviter les Optional
 profondément imbriqués dans des situations complexes .
 
+
+Depuis sa version 8, le langage Java propose une classe qui a pour but de supprimer le problème du null : la classe Optional<T> (que j’appellerais Optional pour faire plus simple ; voir la doc).
+
+Optional est une classe générique qui peut contenir, ou non, une valeur (de type T) ; elle propose également des méthodes permettant de simplifier sa manipulation, en particulier de vérifier qu’une valeur soit présente (isPresent), de fournir une valeur par défaut (orElse), de récupérer la valeur (get), etc.
+
 ## Qu’est-ce que la classe Optional de Java et la méthode map() ?
 
 La classe Optional, introduite dans Java 8, agit comme un conteneur pour des valeurs qui peuvent
