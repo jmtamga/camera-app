@@ -8,5 +8,7 @@ Optional<Venue> optVenue = findVenueById(12L);
 ## Utilsation de orElse pour les valeurs par défaut
 ```
   Optional<UniteFonctionnelle> optVenue = findUfById(12L);
+
   optVenue.map(UniteFonctionnelle::getCode).orElse("CODE_UF_DEFAUT");
+
 ```
