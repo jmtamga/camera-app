@@ -5,3 +5,7 @@ Par contre, on revoie T si la valeur de retour est forcément une valeur non nul
 ```
 Optional<Venue> optVenue = findVenueById(12L);
 ```
+## Utilsation de orElse pour les valeurs par défaut
+```Optional<UniteFonctionnelle> optVenue = findUfById(12L);
+  optVenue.map(UniteFonctionnelle::getCode).orElse("CODE_UF_DEFAUT");
+```
